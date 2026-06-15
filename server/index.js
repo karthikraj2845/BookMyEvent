@@ -13,7 +13,7 @@ app.use(express.json());
 
 app.use('/api/auth', authRoutes); 
 // console.log(authRoutes);
-console.log(bookingRoutes);
+// console.log(bookingRoutes);
 app.use('/api/events', eventRoutes); 
 app.use('/api/bookings', bookingRoutes);
 
@@ -21,6 +21,15 @@ app.use('/api/bookings', bookingRoutes);
 mongoose.connect(process.env.MONGO_URI, {
 }).then(() => { 
     console.log('Connected to MongoDB');
+    const mongoose = require('mongoose');
+require('dotenv').config();
+
+mongoose.connect(process.env.MONGO_URI)
+    .then(() => {
+        console.log('MongoDB Connected');
+        console.log('Database Name:', mongoose.connection.name);
+    })
+    .catch(err => console.log(err));
 }).catch((err) => {
     console.error('Error connecting to MongoDB:', err);
 });
