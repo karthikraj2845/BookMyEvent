@@ -7,7 +7,15 @@ const eventRoutes = require('./routes/events.js');
 const bookingRoutes = require('./routes/bookings.js');
 dotenv.config();
 const app = express();
-app.use(cors());
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173",
+      " https://book-my-event-pied.vercel.app",
+    ],
+    credentials: true,
+  })
+);
 app.use(express.json());
 app.get("/", (req, res) => {
   res.send("BookMyEvent API is running 🚀");
