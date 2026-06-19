@@ -40,6 +40,7 @@ The platform consists of:
 * View Event Details
 * Event Registration Requests
 * Responsive UI
+* otp verifications through emails for secured login and event booking
 
 ## Admin Features
 
@@ -276,7 +277,6 @@ PUT    /api/registrations/:id
 
 * Stripe Payment Integration
 * Event Search & Filtering
-* Email Notifications
 * QR Code Ticket Generation
 * Event Categories
 * Dashboard Analytics
